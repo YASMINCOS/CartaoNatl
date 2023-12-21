@@ -1,0 +1,163 @@
+.body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Pacifico', cursive;
+    background-color: #1a1a1a;
+}
+
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    z-index: -1;
+    pointer-events: none;
+    animation: snowfall 10s linear infinite;
+}
+
+.card {
+    width: 60%;
+    padding: 40px;
+    border-radius: 15px;
+    background-color: #c62828;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+    transform-origin: center bottom;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3; 
+}
+
+.card:hover {
+    transform: translate(-50%, -50%) scale(1.1); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+} 
+.clip-tree {
+    position: relative;
+    margin-top: 20px;
+}
+
+.layer {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: green;
+    clip-path: polygon(50% 5%, 100% 85%, 100% 100%, 0 100%, 0 85%);
+    animation: treeAppear 3s ease-in-out infinite;
+}
+
+.shadow {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #4caf50;
+    clip-path: polygon(50% 0%, 0% 110%, 95% 100%);
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.star {
+    position: absolute;
+    content: '⭐️';
+    font-size: 24px;
+    color: #ffeb3b;
+    left: 42px;
+    z-index: 10;
+    top: -9px;
+}
+
+.message {
+    color: #fff;
+    transform: translateY(0);
+    transition: transform 0.5s ease-in-out;
+}
+
+h1 {
+    color: goldenrod;
+    font-size: 36px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+p {
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+@keyframes snowfall {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(5vh);
+    }
+}
+
+@keyframes treeAppear {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.card.expanded {
+    transform: translateY(-50%) scale(1.2);
+}
+
+.message.expanded {
+    transform: translateY(-50%);
+}
+
+.snowflake {
+    position: absolute;
+    font-size: 20px;
+    color: #fff;
+    pointer-events: none;
+    animation: snowflakeFall linear infinite;
+}
+
+@keyframes snowflakeFall {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.message h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.7);
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.7);
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    }
+}
+
+.message p {
+    font-size: 24px;
+    letter-spacing: 2px;
+}
